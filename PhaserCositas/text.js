@@ -1,0 +1,15 @@
+this.text = this.add.text(this.cameras.main.width /2.5, this.cameras.main.height / 2, 'Oh...Una nueva lectura?!').setFont('32px Arial Black').setFill('#ffffff').setShadow(2, 2, "#333333", 2).setDepth(20);
+this.text.setAlpha(0);
+this.text.setInteractive()
+    .on('pointerover', () => { this.text.setFill('#cb2821'); })
+    .on('pointerout', () => { this.text.setFill('#ffffff'); })
+    .on('pointerdown', () => { 
+        this.scene.start(this.keyScene); 
+    });
+
+this.tweens.add({
+    targets: this.text,
+    alpha: { from: 0, to: 1 },
+    duration: 1000,
+    ease: 'Sine.easeInOut'
+});
